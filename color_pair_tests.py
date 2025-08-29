@@ -1,25 +1,36 @@
 from color_pair_utils import color_pair_from_number, pair_number_from_color_pair
 
-def test_number_to_pair(pair_number, expected_major_color, expected_minor_color):
+def test_number_to_pair(pair_number, expected_major, expected_minor):
     """
     Test conversion from pair number to color pair.
-    :param pair_number: The input pair number to test.
-    :param expected_major_color: The expected major color for the pair.
-    :param expected_minor_color: The expected minor color for the pair.
     """
-    # major_color: Resulting major color from conversion
-    # minor_color: Resulting minor color from conversion
-    major_color, minor_color = color_pair_from_number(pair_number)
-    assert major_color == expected_major_color
-    assert minor_color == expected_minor_color
+    major, minor = color_pair_from_number(pair_number)
+    assert major == expected_major, f"Expected major {expected_major}, got {major}"
+    assert minor == expected_minor, f"Expected minor {expected_minor}, got {minor}"
 
-def test_pair_to_number(major_color, minor_color, expected_pair_number):
+def test_pair_to_number(major, minor, expected_number):
     """
     Test conversion from color pair to pair number.
-    :param major_color: The major color to test.
-    :param minor_color: The minor color to test.
-    :param expected_pair_number: The expected pair number for the color pair.
     """
-    # pair_number: Resulting pair number from conversion
-    pair_number = pair_number_from_color_pair(major_color, minor_color)
-    assert pair_number == expected_pair_number
+    number = pair_number_from_color_pair(major, minor)
+    assert number == expected_number, f"Expected number {expected_number}, got {number}"
+
+def run_color_pair_tests():
+    """
+    Runs all color pair conversion tests.
+    """
+    test_cases_number_to_pair = [
+        (4, 'White', 'Brown'),
+        (5, 'White', 'Slate'),
+    ]
+    test_cases_pair_to_number = [
+        ('Black', 'Orange', 12),
+        ('Violet', 'Slate', 25),
+        ('Red', 'Orange', 7),
+    ]
+
+    for pair_number, expected_major, expected_minor in test_cases_number_to_pair:
+        test_number_to_pair(pair_number, expected_major, expected_minor)
+
+    for major, minor, expected_number in test_cases_pair_to_number:
+        test_pair_to_number(major, minor, expected_number)
