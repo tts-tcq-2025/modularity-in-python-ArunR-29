@@ -3,8 +3,6 @@ from color_constants import MAJOR_COLORS, MINOR_COLORS
 def color_pair_to_string(major_color, minor_color):
     """
     Return a string representation of a color pair.
-    :param major_color: The major color in the pair.
-    :param minor_color: The minor color in the pair.
     :return: String in the format 'Major Minor'.
     """
     return f'{major_color} {minor_color}'
@@ -29,8 +27,6 @@ def color_pair_from_number(pair_number):
 def pair_number_from_color_pair(major_color, minor_color):
     """
     Given major and minor colors, return the corresponding pair number.
-    :param major_color: The major color in the pair.
-    :param minor_color: The minor color in the pair.
     :return: The cable pair number (1-based).
     :raises Exception: If colors are not found in the lists.
     """
