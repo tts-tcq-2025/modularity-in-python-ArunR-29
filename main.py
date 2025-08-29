@@ -1,16 +1,11 @@
-from color_pair_tests import test_number_to_pair, test_pair_to_number
+from color_pair_tests import run_color_pair_tests
 
 def main():
     """
-    Main function to run all color pair conversion tests.
+    Entry point for running all color pair conversion tests.
+    Delegates test execution to the test suite for better modularity and maintainability.
     """
-    # Run test cases for color pair conversions
-    test_number_to_pair(4, 'White', 'Brown')
-    test_number_to_pair(5, 'White', 'Slate')
-    test_pair_to_number('Black', 'Orange', 12)
-    test_pair_to_number('Violet', 'Slate', 25)
-    test_pair_to_number('Red', 'Orange', 7)
-    print('Done :)')
+    run_color_pair_tests()
 
 if __name__ == '__main__':
     main()
